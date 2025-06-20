@@ -28,13 +28,14 @@ Expo CLI
 
 Principais bibliotecas e dependências utilizadas:
 
-Pacote	                                             Finalidade
-react-native	                                 Desenvolvimento mobile multiplataforma
-expo	                                         Ambiente de desenvolvimento mobile
-react-navigation	                             Navegação entre telas
-axios	                                         Consumo da API ViaCEP
-@react-native-async-storage/async-storage	     Persistência de dados local
-firebase	                                     Autenticação de usuários
+| Pacote                                         | Finalidade                          |
+|-----------------------------------------------|-------------------------------------|
+| react-native                                   | Desenvolvimento mobile multiplataforma |
+| expo                                           | Ambiente de desenvolvimento mobile   |
+| react-navigation                               | Navegação entre telas               |
+| axios                                          | Consumo da API ViaCEP               |
+| @react-native-async-storage/async-storage      | Persistência de dados local         |
+| firebase                                       | Autenticação de usuários            |
 
 Como clonar e rodar o aplicativo
 Clone o repositório:
