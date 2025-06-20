@@ -1,117 +1,160 @@
-# 📱 Marido de Aluguel - Aplicativo de Agendamento de Serviços
+Marido de Aluguel - Aplicativo de Agendamento de Serviços
+Este é um aplicativo mobile desenvolvido com React Native (Expo) como parte de um projeto acadêmico. O objetivo é oferecer uma solução prática e intuitiva para pessoas que desejam contratar serviços domésticos, como eletricistas, encanadores e pintores.
 
-Este é um aplicativo mobile desenvolvido com **React Native (Expo)** para facilitar o agendamento de serviços domésticos com prestadores, como eletricistas e encanadores.
+Objetivo do Aplicativo
+O principal objetivo é facilitar o processo de agendamento de serviços residenciais. Com o aplicativo, o usuário pode escolher o tipo de serviço desejado, informar data, horário e endereço, além de acompanhar seus agendamentos anteriores.
 
-##  Funcionalidades
+Solução Proposta
+Muitas pessoas enfrentam dificuldades para encontrar profissionais para pequenos serviços domésticos de forma rápida e organizada. O aplicativo Marido de Aluguel propõe centralizar esse processo, oferecendo:
 
-- Login e cadastro de usuários
-- Seleção de serviços disponíveis
-- Visualização do perfil do prestador com botão de contratação
-- Tela de agendamento com:
-  - Preenchimento de data, hora e observações
-  - Busca de endereço via **API ViaCEP**
-- Escolha de forma de pagamento (Pix, Cartão, Dinheiro)
-- Tela de **resumo da contratação**
-- Visualização de **agendamentos salvos** com **persistência local**                                                                                                                                                                                           
----
+Lista de serviços disponíveis
 
-##  Persistência de Dados
+Busca automática de endereço via API ViaCEP
 
-Utilizamos o **AsyncStorage** para armazenar os dados de agendamento no dispositivo do usuário, garantindo que as informações não sejam perdidas ao fechar o aplicativo.
+Sistema de agendamento de data, hora e endereço
 
-**Tecnologia usada:** `@react-native-async-storage/async-storage`  
-**Justificativa:** O AsyncStorage é leve, prático e compatível com o Expo, ideal para armazenar dados localmente em projetos mobile sem exigir backend.
+Visualização de agendamentos salvos
 
----
+Cancelamento de agendamentos
 
-##  Integração com API
+Tela de pagamento com seleção da forma de pagamento
 
-O aplicativo consome a **API pública ViaCEP** para transformar um CEP informado em endereço completo.
+Tecnologias e Dependências
+Requisitos para rodar o projeto:
 
-- Exemplo: `https://viacep.com.br/ws/01001000/json/`
+Node.js
 
-Essa integração melhora a usabilidade e evita erros no preenchimento do endereço.
+Expo CLI
 
-##  Novas Funcionalidades
+Principais bibliotecas e dependências utilizadas:
 
--  Formatação automática de data (DD/MM/AAAA) e hora (HH:MM)
-- Validação de datas passadas – não permite agendar para datas anteriores
--  Botão de cancelamento de agendamentos com confirmação
--  Melhorias de usabilidade: placeholders mais visíveis
+Pacote	                                             Finalidade
+react-native	                                 Desenvolvimento mobile multiplataforma
+expo	                                         Ambiente de desenvolvimento mobile
+react-navigation	                             Navegação entre telas
+axios	                                         Consumo da API ViaCEP
+@react-native-async-storage/async-storage	     Persistência de dados local
+firebase	                                     Autenticação de usuários
 
-
-## Como Baixar o Projeto do GitHub e Rodar
-Clonando o Repositório:
-Abra o terminal e execute:
+Como clonar e rodar o aplicativo
+Clone o repositório:
 git clone https://github.com/Robinhosbt/Marido-de-aluguel.git
 cd Marido-de-aluguel
-Estrutura de Pastas Importantes:
-Ao fazer o clone, você terá a seguinte estrutura principal:
+Instale as dependências:
 
-app/ → Contém o código das telas (screens) e navegação
-
-assets/ → Imagens, ícones e logos
-
-components/ → Componentes reutilizáveis
-
-constants/ → Constantes globais
-
-hooks/ → Hooks personalizados
-
-scripts/ → Scripts auxiliares (se houver)
-
-.vscode/ → Configurações opcionais para quem usa VS Code
-
-Outros arquivos importantes:
-
-app.json, package.json, tsconfig.json, etc → Configuração geral do projeto React Native + Expo
-
-README.md → Documentação (este arquivo)
-
-
-
-## ▶ Como Executar o Projeto
-
-Siga os passos abaixo para iniciar o projeto localmente:
-1. Instale as dependências:
 npm install
-3. Inicie o app com o Expo:
+Execute o app com o Expo:
+
 npx expo start
-4. Execute no celular:
-Baixe o aplicativo Expo Go na Play Store ou App Store.
+Abra no celular:
 
-Escaneie o QR code exibido no terminal ou no navegador após iniciar o projeto.
+Instale o aplicativo Expo Go na Play Store ou App Store.
 
-Requisitos: Node.js instalado, além do Expo CLI (instalado automaticamente via npx expo start).
+Escaneie o QR Code exibido após iniciar o projeto.
 
- Tecnologias Utilizadas
-React Native
+Requisitos: Ter o Node.js instalado e o Expo CLI configurado (o npx expo start faz isso automaticamente).
 
-Expo
+Estrutura de Pastas
+/screens/ - Telas do aplicativo (Login, Cadastro, Home, Agendamento, etc)
 
-AsyncStorage
+/assets/ - Imagens utilizadas no app
 
-Axios
+firebaseConfig.js - Configuração de autenticação
 
-ViaCEP API
+Arquivos de configuração (app.json, package.json, etc)
 
-React Navigation
+Sobre a implementação do AsyncStorage
+O aplicativo utiliza o AsyncStorage para garantir que os agendamentos fiquem salvos localmente mesmo que o usuário feche o app.
 
- Telas (Screenshots)
-(Adicione imagens se desejar, colocando-as na pasta /screenshots)
+Como funciona:
 
- Projeto Acadêmico
-Este projeto foi desenvolvido como parte de atividade prática com foco em:
+Ao concluir um agendamento, os dados são armazenados localmente.
 
-Integração com API externa (ViaCEP)
+Ao abrir novamente, o app carrega os agendamentos salvos.
+
+O usuário também pode cancelar agendamentos e os dados serão atualizados.
+
+Arquitetura do Software
+O app segue o padrão de navegação Stack Navigation utilizando o React Navigation.
+
+Fluxo básico de telas:
+
+Login
+
+Cadastro
+
+Home
+
+Detalhes do Serviço
+
+Agendamento
+
+Pagamento
+
+Resumo
+
+Meus Agendamentos
+
+Suporte
+
+Perfil do Prestador
+
+Manual do Usuário
+Principais telas e suas funções:
+
+Login: Acesso ao aplicativo.
+
+Cadastro: Registro de novos usuários.
+
+Home: Exibe os serviços disponíveis.
+
+Detalhes do Serviço: Mostra descrição completa de cada serviço.
+
+Agendamento: Permite escolher data, hora, número da casa e endereço.
+
+Pagamento: Escolha da forma de pagamento.
+
+Resumo: Confirmação final do agendamento.
+
+Meus Agendamentos: Exibe os agendamentos salvos, com opção de cancelamento.
+
+Suporte: Canal de contato com a empresa.
+
+Funcionalidades Atuais
+Login e Cadastro
+
+Navegação entre telas
+
+Integração com API ViaCEP
 
 Persistência de dados local com AsyncStorage
 
-Interface funcional e intuitiva
+Validação de datas inválidas e datas passadas
 
-Boas práticas de navegação e organização de código
+Cancelamento de agendamentos
 
-Desenvolvido por Robson Campos - 2025
+Exibição de descrição detalhada para cada serviço
 
-git clone https://github.com/Robinhosbt/Marido-de-aluguel.git
-cd Marido-de-aluguel
+Melhorias de layout e usabilidade
+
+Possíveis Melhorias Futuras
+Integração completa com Firebase para autenticação e banco de dados em nuvem
+
+Envio de notificações push
+
+Implementação de chat de suporte
+
+Melhorias no design e experiência do usuário
+
+Projeto Acadêmico
+Este aplicativo foi desenvolvido para a disciplina de Programação para Dispositivos Móveis, com foco em:
+
+Consumo de APIs externas (ViaCEP)
+
+Persistência local de dados
+
+Estruturação de navegação entre telas
+
+Melhores práticas em desenvolvimento mobile
+
+Desenvolvido por Robson Campos - 2025.
